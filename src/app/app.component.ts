@@ -13,7 +13,7 @@ export class AppComponent {
   items = ['Pizza', 'Pasta', 'Parmesan'];
   title = 'sitera01';
   public userInfo;
-  userInfoTmp:string;
+  userInfoTmp: string;
   public profileComponent = {};
   constructor(private titleService: Title, private _authService: AuthenticationServiceService, private router: Router) {
     this.titleService.setTitle("Talent Management");
@@ -38,22 +38,22 @@ export class AppComponent {
       this.profileComponent = { loggedin: false, name: "unknown", avatar: null }
     } else {
       // this.data.currentMessage.subscribe(message => this.userInfoTmp = message)
-      this.userInfo= JSON.parse(this._authService.loggedUser())
+      this.userInfo = JSON.parse(this._authService.loggedUser())
       console.log("############# ngOnInit " + JSON.stringify(this.userInfo))
-      this.profileComponent = { loggedin: true, name: this.userInfo.fullName, avatar: env.apiUrl+"/"+ this.userInfo.avatar }
+      this.profileComponent = { loggedin: true, name: this.userInfo.fullName, avatar: env.apiUrl + "/" + this.userInfo.avatar }
     }
   }
 
   public callProfile(): void {
     this.userInfo = JSON.parse(this._authService.loggedIn());
-    
+
     if (!this.userInfo) {
-      
+
       this.profileComponent = { loggedin: false, name: "unknown", avatar: null }
     } else {
-     
-      this.userInfo= JSON.parse(this._authService.loggedUser())
-      this.profileComponent = { loggedin: true, name: this.userInfo.fullName, avatar: env.apiUrl+"/"+ this.userInfo.avatar }
+
+      this.userInfo = JSON.parse(this._authService.loggedUser())
+      this.profileComponent = { loggedin: true, name: this.userInfo.fullName, avatar: env.apiUrl + "/" + this.userInfo.avatar }
     }
   }
 

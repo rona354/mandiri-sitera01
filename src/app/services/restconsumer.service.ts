@@ -18,7 +18,7 @@ export class RestconsumerService {
       'Content-Type': 'application/json'
     })
   };
-  
+
   public getCreateNewMaster() {
     return this.httpClient
       .get(this.apiURL + '/createnewmasters')
@@ -45,9 +45,9 @@ export class RestconsumerService {
       );
   }
   public postAdminLogin(item) {
-   
+
     return this.httpClient
-      .post(this.apiURL+'/adminlogin', item, this.httpOptions)
+      .post(this.apiURL + '/adminlogin', item, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -55,9 +55,9 @@ export class RestconsumerService {
   }
 
   public postOpportunities(item) {
-   
+
     return this.httpClient
-      .post(this.apiURL+'/opportunity', item, this.httpOptions)
+      .post(this.apiURL + '/opportunity', item, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
